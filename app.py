@@ -1,16 +1,18 @@
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
-    hasil = ""
+    return render_template("index.html")
 
-    if request.method == "POST":
-        nama = request.form["nama"]
-        hasil = "Halo, " + nama
-
-    return render_template("index.html", hasil=hasil)
+@app.route("/greet", methods=["POST"])
+def greet():
+    name = request.form.get("name")
+    if not name:
+        name = "Anonim"
+    return f"<h2>Halo, {name}! Selamat datang di Flask First App 🚀</h2>"
 
 if __name__ == "__main__":
     app.run(debug=True)

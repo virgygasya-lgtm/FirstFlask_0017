@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask POST</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Form Input Nama</h1>
+
+        <form method="POST">
+            <label for="nama">Masukkan Nama:</label>
+
+            <input type="text" id="nama" name="nama" placeholder="Ketik nama kamu">
+
+            <button type="submit">Kirim</button>
+        </form>
+
+        <h2>{{ hasil }}</h2>
+    </div>
+
+</body>
+</html>
